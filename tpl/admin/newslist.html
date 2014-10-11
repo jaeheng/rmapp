@@ -1,0 +1,55 @@
+{include file='admin/header.html'}
+{include file='admin/bread.html'}
+{include file='admin/leftmenu.html'}
+
+<div id="main" class="column">
+	
+	<div class="module width_full">
+	<div class="page-header">
+	  <h3>新闻列表<small> News list</small></h3>
+	</div>
+	<div class="tab_container">
+		<div class="table-responsive">
+			<table class="table table-hover" cellspacing="0" style="margin:0"> 
+				<thead> 
+					<tr>  
+		    				<th>序号</th>
+		    				<th>新闻标题</th>
+		    				<th>作者</th>
+		    				<th>发布时间</th>
+		    				<th>操作</th>
+					</tr> 
+				</thead>
+				<tbody>
+				{if $data}
+				{foreach $data as $value}
+					<tr>
+		    				<td>{$value.id}</td> 
+		    				<td>{$value.title}</td> 
+		    				<td>{$value.author}</td> 
+		    				<td>{date('Y-m-d',$value.dateline)}</td>
+		    				<td>
+		    				<input type="image" src="img/images/icn_edit.png" title="Edit" onclick="window.location.href='admin.php?controller=admin&method=newsadd&id={$value.id}'">
+		    				&nbsp;&nbsp;
+		    				<input type="image" src="img/images/icn_trash.png" title="Trash" onclick="window.location.href='admin.php?controller=admin&method=newsdel&id={$value.id}'">
+		    				</td>
+					</tr>
+				{/foreach}
+				{else}
+					<tr>
+						<td  colspan=4>
+							暂无新闻
+						</td>
+					</tr>
+				{/if}
+				</tbody>
+			</table>
+		</div><!-- end of #tab1 -->
+		
+	</div><!-- end of .tab_container -->
+	
+	</div><!-- end of content manager article -->
+	<div class="spacer"></div>
+</div>
+
+{include file='admin/footer.html'}

@@ -1,0 +1,151 @@
+	{include file='admin/header.html'}
+	
+	<section id="secondary_bar">
+		<div class="user">
+			<p>admin</p>
+			<!-- <a class="logout_user" href="#" title="Logout">Logout</a> -->
+		</div>
+		<div class="breadcrumbs_container">
+			<article class="breadcrumbs"><a href="admin.php?controller=admin">后台管理系统</a> <div class="breadcrumb_divider"></div> <a class="current">微博资源添加</a></article>
+		</div>
+	</section><!-- end of secondary bar -->
+	
+	{include file='admin/leftmenu.html'}
+	
+	<section id="main" class="column">
+		<form id="form1" name="form1" method="post" action="admin.php?controller=weibo&method=add">
+			<article class="module width_full">
+				<header><h3>发布微博资源</h3></header>
+					<div class="module_content">
+							<fieldset class="weibo_add">
+								<label>昵称(*)</label>
+								<input type="text" name="nick" value="{$data.nick|default:''}">
+							</fieldset>
+							<fieldset class="weibo_add">
+								<label>微博地址</label>
+								<input type="text" name="owner_url" value="{$data.owner_url|default:''}">
+							</fieldset>
+							<fieldset class="weibo_add">
+								<label>粉丝</label>
+								<input type="text" name="fans" value="{$data.fans|default:''}">
+							</fieldset>		
+							<fieldset class="weibo_add">
+								<label>地区</label>
+								<input type="text" name="area" value="{$data.area|default:''}">
+							</fieldset>					
+							<fieldset class="weibo_add">
+								<label>直发报价</label>
+								<input type="text" name="zhi_pri" value="{$data.zhi_pri|default:''}">
+							</fieldset>
+							<fieldset class="weibo_add">
+								<label>转发报价</label>
+								<input type="text" name="zhuan_pri" value="{$data.zhuan_pri|default:''}">
+							</fieldset>
+							<fieldset class="weibo_add">
+								<label>直发成本</label>
+								<input type="text" name="zhi_ben" value="{$data.zhi_ben|default:''}">
+							</fieldset>
+							<fieldset class="weibo_add">
+								<label>转发成本</label>
+								<input type="text" name="zhuan_ben" value="{$data.zhuan_ben|default:''}">
+							</fieldset>
+							<fieldset class="weibo_add">
+								<label>类别</label>
+								<select name="category">
+						      	 <option value=""></option>
+								  <option value="草根">草根</option>
+								  <option value="段子手">段子手</option>
+								  <option value="自媒体">自媒体</option>
+								  <option value="网络红人">网络红人</option>
+								  <option value="行业达人">行业达人</option>
+								  <option value="主持人">主持人</option>
+								  <option value="歌手">歌手</option>
+								  <option value="演员">演员</option>
+								  <option value="记者">记者</option>
+								  <option value="评论家">评论家</option>
+								  <option value="地区号">地区号</option>
+						      </select>
+							
+							</fieldset>
+							<fieldset class="weibo_add">
+								<label>分类</label>
+								<select name="sort">
+							      <option value=""></option>
+								  <option value="新闻资讯">新闻资讯</option>
+								  <option value="IT互联网">IT互联网</option>
+								  <option value="时尚女性">时尚女性</option>
+								  <option value="汽车">汽车</option>
+								  <option value="科技数码">科技数码</option>
+								  <option value="母婴育儿">母婴育儿</option>
+								  <option value="医疗健康">医疗健康</option>
+								  <option value="游戏动漫">游戏动漫</option>
+								  <option value="旅游摄影">旅游摄影</option>
+								  <option value="娱乐影视">娱乐影视</option>
+								  <option value="创意生活">创意生活</option>
+								  <option value="搞笑笑话">搞笑笑话</option>
+								  <option value="财经">财经</option>
+								  <option value="校园">校园</option>
+								  <option value="教育">教育</option>
+								  <option value="家居">家居</option>
+								  <option value="家电">家电</option>
+								  <option value="美食">美食</option>
+								  <option value="建材">建材</option>
+								  <option value="房产">房产</option>
+								  <option value="奢侈品">奢侈品</option>
+								  <option value="婚纱">婚纱</option>
+								  <option value="公益">公益</option>
+								  <option value="宠物">宠物</option>
+								  <option value="语录">语录</option>
+								  <option value="英语">英语</option>
+								  <option value="购物">购物</option>
+								  <option value="音乐">音乐</option>
+								  <option value="百科">百科</option>
+								  <option value="情感">情感</option>
+								  <option value="星座">星座</option>
+								</select>
+							</fieldset>
+							<fieldset class="weibo_add">
+								<label>状态</label>
+								<select class="form-control" name="state">
+							      <option value=""></option>
+								  <option value="达人">达人</option>
+								  <option value="微博女郎">微博女郎</option>
+								  <option value="个人认证">个人认证</option>
+								  <option value="企业认证">企业认证</option>
+								  <option value="官方认证">官方认证</option>
+								</select>
+							</fieldset>
+							<fieldset class="weibo_add">
+								<label>推荐等级</label>
+								<select class="form-control" name="classU">
+							      <option value=""></option>
+								  <option value="顶级推荐">顶级推荐</option>
+								  <option value="重点推荐">重点推荐</option>
+								  <option value="一般推荐">一般推荐</option>
+								</select>
+							</fieldset>
+							<fieldset class="weibo_add">
+								<label>拥有者</label>
+								<input type="text" name="owner" value="{$data.owner|default:''}">
+							</fieldset>
+
+							<div class="clear"></div>
+					</div>
+				<footer>
+					<div class="submit_link">
+						<input type="hidden" name="w_id" value="{$data.w_id|default:''}">
+						<input type="submit" name="submit" value="发布" class="alt_btn">
+					</div>
+				</footer>
+			</article>
+		</form>
+		<div class="spacer"></div>
+	</section>
+<script>
+	$("select[name='sort']").val("{$data.sort|default:''}");
+	$("select[name='state']").val("{$data.state|default:''}");
+	$("select[name='classU']").val("{$data.classU|default:''}");
+	$("select[name='category']").val("{$data.category|default:''}");
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+{include file='admin/header.html'}
+{include file='admin/bread.html'}
+{include file='admin/leftmenu.html'}
+
+<div id="main" class="column">		
+	<div class="page-header">
+	  <h3>微博资源<small> Weibo list</small></h3>
+	</div>
+	<!-- 多条件查询 -->
+	<div class="mcquery panel panel-default">
+	  <div class="panel-heading">条件查询</div>
+	  <ul class="list-group">
+	  	<li class="list-group-item">
+			类别：<a href=""></a>
+	  	</li>
+	  	<li class="list-group-item">
+	  		分类：<a href="">ddd</a>
+	  	</li>
+	  	<li class="list-group-item">
+	  		地区：<a href="">ddd</a>
+	  	</li>
+	  </ul>
+	</div>
+	<div class="tab_container">
+		<div class="table-responsive">
+			<table class="table table-hover" cellspacing="0" style="margin:0"> 
+				<thead> 
+					<tr>  
+	    				<th><input type="checkbox"></th>
+						<th>序号</th>
+						<th>昵称</th>
+						<th>分类</th>
+						<th>粉丝(W)</th>
+						<th>直发报价</th>
+						<th>转发报价</th>
+						<th>直发成本</th>
+						<th>转发成本</th>
+						<th>状态</th>
+						<th>地区</th>
+						<th>等级</th>
+						<th>拥有者</th>
+						<th>操作</th>
+					</tr> 
+				</thead>
+				<tbody>
+				{if $data}
+				{foreach $data as $value}
+					<tr>
+						<td><input type="checkbox"></td>
+	    				<td>{$value.w_id}</td> 
+	    				<td><a href="{$value.owner_url}" target="_blank">{$value.nick}</a></td> 
+	    				<td>{$value.sort}</td>
+	    				<td>{$value.fans}</td>  
+	    				<td>{$value.zhi_pri}</td>
+	    				<td>{$value.zhuan_pri}</td>
+	    				<td>{$value.zhi_ben}</td>
+	    				<td>{$value.zhuan_ben}</td> 
+	    				<td>{$value.state}</td> 
+	    				<td>{$value.area}</td> 
+	    				<td>{$value.classU}</td> 
+	    				<td>{$value.owner}</td>    
+	    				<td>
+	    				<input type="image" src="img/images/icn_edit.png" title="Edit" onclick="window.location.href='admin.php?controller=weibo&method=add&w_id={$value.w_id}'">
+	    				<input type="image" src="img/images/icn_trash.png" title="Trash" onclick="window.location.href='admin.php?controller=weibo&method=weiboDel&w_id={$value.w_id}'">
+	    				</td>
+					</tr>
+				{/foreach}
+				{else}
+					<tr>
+						<td  colspan=12>
+							暂无新闻
+						</td>
+					</tr>
+				{/if}
+				</tbody>
+			</table>
+		</div><!-- end of #tab1 -->
+		
+		<div id="tab2" class="tab_content">
+
+		</div><!-- end of #tab2 -->
+		
+	</div><!-- end of .tab_container -->
+	<div class="spacer"></div>
+</div>
+{include file='admin/footer.html'}

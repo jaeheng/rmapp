@@ -1,0 +1,21 @@
+<ol class="breadcrumb">
+	<li>欢迎您：<a href="">{$auth['username']}</a></li>
+	<li><a href="admin.php?controller=admin">后台管理中心</a></li>
+	{if empty($smarty.get.method)}
+	<li class="active">新闻管理列表</li>
+	{elseif $smarty.get.method eq 'newsadd'}
+	<li class="active">文章发布</li>
+	{elseif $smarty.get.method eq 'newslist'}
+	<li class="active">管理新闻</li>
+	{elseif $smarty.get.method eq 'add'}
+	<li class="active">添加微博</li>
+	{elseif $smarty.get.method eq 'weiboList'}
+	<li class="active">管理微博资源</li>
+	{elseif $smarty.get.method eq 'weiboRecList'}
+	<li class="active">微博回收站</li>
+	{elseif $smarty.get.method eq 'editpw'}
+	<li class="active">修改密码</li>
+	{elseif $smarty.get.method eq 'category'}
+	<li class="active">类别列表</li>
+	{/if}
+</ol>

@@ -1,0 +1,65 @@
+{include file='admin/header.html'}
+{include file='admin/bread.html'}
+{include file='admin/leftmenu.html'}
+<div id="main">
+	<div class="page-header">
+	  <h3>类别列表<small> Category list</small></h3>
+	</div>
+	<div class="table-responsive">
+		<table class="category table table-hover">
+		  <tr class="info">
+		  <th><input type="checkbox"></th>
+		  	<th>序号</th>
+		  	<th>类别名称</th>
+		  	<th>别名</th>
+		  	<th>查看</th>
+		  	<th>资源</th>
+		  	<th>操作</th>
+		  </tr>
+		  {if $data}
+		  {foreach $data as $value}
+		  <tr>
+		  	<td><input type="checkbox"></td>
+		  	<td>{$value.cid}</td>
+		  	<td>{$value.cate_name}</td>
+		  	<td>{$value.alias}</td>
+		  	<td><a href="">查看</a></td>
+		  	<td><a href="">0</a></td>
+		  	<td>
+			<input type="image" src="img/images/icn_edit.png" title="Edit" onclick="window.location.href='admin.php?controller=sys&method=add&cid={$value.cid}'">&nbsp;
+			<input type="image" src="img/images/icn_trash.png" title="Trash" onclick="window.location.href='admin.php?controller=sys&method=catedel&cid={$value.cid}'">
+			</td>
+		  </tr>
+		  {/foreach}
+		{else}
+			<tr>
+				<td  colspan=7>
+					暂无新闻
+				</td>
+			</tr>
+		{/if}
+		</table>
+		<hr>
+		<div class="row">
+			<div class="col-md-6">
+				<form action="" class="form-horizontal" role="form">
+					<div class="form-group">
+					    <label for="inputEmail3" class="col-sm-3 control-label">类别名称：</label>
+					    <div class="col-sm-9">
+					     <input type="text" class="form-control" name="cate_name" placeholder="类别名称">
+					    </div>
+					</div>
+					<div class="form-group">
+						<label for="alias" class="col-sm-3 control-label">类别别名：</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" name="alias" placeholder="类别别名">
+						</div>
+					</div>
+
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{include file='admin/footer.html'}

@@ -1,0 +1,16 @@
+{include file='admin/header.html'}
+{include file='admin/bread.html'}
+{include file='admin/leftmenu.html'}
+	<ul class="list-group" id="main">
+	  <li class="list-group-item active">网站统计信息</li>
+	  <li class="list-group-item">本站共有新闻{$newsnum}篇.</li>
+	  <li class="list-group-item">系统类型及版本号：{php_uname('s')} {php_uname('r')}</li>
+	  <li class="list-group-item">PHP运行方式：{php_sapi_name()}</li>
+	  <li class="list-group-item">数据库表前缀：{$smarty.const.DB_PREFIX}</li>
+	  <li class="list-group-item">PHP版本：{$smarty.const.PHP_VERSION}</li>
+	  <li class="list-group-item">Smarty版本：{$smarty.version}</li>
+	  <li class="list-group-item">服务器语言：{$smarty.server.HTTP_ACCEPT_LANGUAGE}</li>
+	</ul>
+</body>
+
+</html>

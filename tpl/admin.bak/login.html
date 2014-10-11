@@ -1,0 +1,43 @@
+	{include file='admin/header.html'}
+	
+	<section id="secondary_bar">
+	
+		<div class="breadcrumbs_container">
+			<article class="breadcrumbs"><a href="admin.php?controller=admin">后台管理中心</a> <div class="breadcrumb_divider"></div> <a class="current">登录</a></article>
+		</div>
+	</section><!-- end of secondary bar -->
+	
+	
+	
+	<section id="main" class="column">
+		
+		<h4 class="alert_info" style="width:46%">请使用您的用户名和密码在下面登录.</h4>
+		<form id="form1" name="form1" method="post" action="admin.php?controller=admin&method=login">
+		<article class="module width_half">
+			<header><h3>管理员登录</h3></header>
+				<div class="module_content">
+						<fieldset>
+							<label>用户名</label>
+							<input type="text" name="username" style="width:92%;">
+						</fieldset>
+						<fieldset>
+							<label>密码</label>
+							<input type="password" name="password" style="width:92%;">
+						</fieldset>
+						<div class="clear"></div>
+				</div>
+			<footer>
+				<div class="submit_link">
+					<input type="submit" name="submit" value="开始登录" class="alt_btn">
+				</div>
+			</footer>
+		</article>
+		</form>
+		
+		<div class="spacer"></div>
+	</section>
+
+
+</body>
+
+</html>

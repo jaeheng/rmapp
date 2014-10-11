@@ -1,0 +1,34 @@
+{include file='admin/header.html'}
+{include file='admin/bread.html'}
+{include file='admin/leftmenu.html'}
+<div id="main">
+	<form class="form-horizontal" role="form" method="post" action="admin.php?controller=admin&method=editpw">
+		<div class="form-group">
+			<label class="col-sm-1 control-label">用户名:</label>
+			<div class="col-sm-3">
+				<input class="form-control" name="username" value="{$auth['username']}" readonly>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputPassword" class="col-sm-1 control-label">旧密码:</label>
+			<div class="col-sm-3">
+				<input type="password" class="form-control" id="oldpw" name="oldpw" placeholder="输入旧密码"></div>
+		</div>
+		<div class="form-group">
+			<label for="inputPassword" class="col-sm-1 control-label">新密码:</label>
+			<div class="col-sm-3">
+				<input type="password" class="form-control" id="newpw" name="newpw" placeholder="输入新密码"></div>
+		</div>
+		<div class="form-group">
+			<label for="inputPassword" class="col-sm-1 control-label">确认新密码:</label>
+			<div class="col-sm-3">
+				<input type="password" class="form-control" id="cfnewpw" name="cfnewpw" placeholder="确认新密码"></div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-4">
+				<!-- <input type="hidden" name="uid" value="{$auth.uid|default:''}"> -->
+				<input type="submit" name="submit" value="确定修改" class="form-control btn btn-primary"></div>
+		</div>
+
+	</form>
+</div>

@@ -5,4 +5,4 @@ rmapp
 
 Resource management system
 
-暂时还没有上传数据库文件
+暂时还没有上传数据库文件,呵呵呵

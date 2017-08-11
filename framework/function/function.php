@@ -1,44 +1,55 @@
 <?php
-	function C($name, $method){
-		require_once('/libs/controller/'.$name.'Controller.class.php');
-		eval('$obj = new '.$name.'Controller();$obj->'.$method.'();');
-	}
+/* 鍏叡鍑芥暟 */
 
-	function M($name){
-		require_once('/libs/Model/'.$name.'Model.class.php');
-		//$testModel = new testModel();
-		eval('$obj = new '.$name.'Model();');
-		return $obj;
-	}
-	
-	function V($name){
-		require_once('/libs/View/'.$name.'View.class.php');
-		//$testView = new testView();
-		eval('$obj = new '.$name.'View();');
-		return $obj;
-	}
-	
-	function ORG($path, $name, $params=array()){// path 是路径  name是第三方类名 params 是该类初始化的时候需要指定、赋值的属性，格式为 array(属性名=>属性值, 属性名2=>属性值2……)
-		require_once('libs/ORG/'.$path.$name.'.class.php');
-		//eval('$obj = new '.$name.'();');
-		$obj = new $name();
-		if(!empty($params)){
-		foreach($params as $key=>$value){
-				//eval('$obj->'.$key.' = \''.$value.'\';');
-				$obj->$key = $value;
-			}
-		}
-		return $obj;
-	}
+/**
+ * 鎵ц鏌愭帶鍒跺櫒涓嬬殑鏌愪釜鏂规硶
+ * @param $name
+ * @param $method
+ */
+function C($name, $method)
+{
+    require_once('app/controller/' . $name . 'Controller.class.php');
+    $obj = call_user_func(array($name . 'Controller', 'getInstance'));
+    $obj->$method();
+}
 
-	function daddslashes($str){
-		return (!get_magic_quotes_gpc())?addslashes($str):$str;
-	}
-	//提示信息
-	function msg($info, $url)
-	{
-		echo "<script>alert('$info');window.location.href='$url'</script>";
-		exit;
-	}
+/**
+ * 鑾峰緱涓�涓ā鍨嬬殑瀹炰緥
+ * @param $name
+ * @return mixed
+ */
+function M($name)
+{
+    require_once('app/Model/' . $name . 'Model.class.php');
+    return call_user_func(array($name . 'Model', 'getInstance'));
+}
 
-?>
+/**
+ * 鍘婚櫎鍗遍櫓瀛楃
+ * @param $str
+ * @return string
+ */
+function daddslashes($str)
+{
+    return (!get_magic_quotes_gpc()) ? addslashes($str) : $str;
+}
+
+/**
+ * 鎻愮ず娑堟伅
+ * @param $info
+ * @param $url
+ */
+function msg($info, $url)
+{
+    echo "<script>alert('$info');window.location.href='$url'</script>";
+    exit;
+}
+
+/**
+ * 鏄惁鐧诲綍
+ * @return bool
+ */
+function isLogin()
+{
+    return isset($_SESSION['auth']) ? $_SESSION['auth'] : false;
+}

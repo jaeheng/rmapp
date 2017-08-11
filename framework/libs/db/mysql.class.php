@@ -1,5 +1,5 @@
 <?php
-class mysql{
+class mysql {
 
 	/**
 	 * 报错函数
@@ -20,6 +20,7 @@ class mysql{
 	 * @param string $dbcharset 字符集/编码
 	 * @return bool  连接成功或不成功 
 	 **/
+
 	function connect($config){
 		extract($config);
 		if(!($con = mysql_connect($dbhost,$dbuser,$dbpsw))){//mysql_connect连接数据库函数
